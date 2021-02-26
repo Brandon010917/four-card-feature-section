@@ -18,6 +18,9 @@
   --very-dark-blue: hsl(234, 12%, 34%);
   --grayish-blue: hsl(229, 6%, 66%);
   --very-light-gray: hsl(0, 0%, 98%);
+
+  /* SEPARATION COLUMNS */
+  --gap: 1.5rem;
 }
 
 html {
@@ -39,7 +42,6 @@ a {
 }
 
 body {
-  margin: 0;
   padding: 5rem 2rem 4rem;
   font-family: var(--font-family);
   font-size: var(--font-size);
@@ -57,6 +59,12 @@ body {
   margin-top: 0;
 }
 
+@media (min-width: 768px) {
+  .header__title {
+    font-size: 2rem;
+  }
+}
+
 .header__title--bold {
   font-weight: var(--font-weight-bold);
   display: block;
@@ -66,13 +74,31 @@ body {
 
 .header__text {
   line-height: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cards {
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: minmax(310px, 1fr);
-  row-gap: 1.5rem;
+  grid-template-columns: minmax(310px, 450px);
+  justify-content: center;
+  row-gap: var(--gap);
+}
+
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(auto, 350px));
+    gap: var(--gap);
+  }
+}
+
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(3, minmax(auto, 350px));
+    grid-template-rows: repeat(2, 1fr);
+  }
 }
 
 .card {
@@ -83,6 +109,12 @@ body {
   border-radius: 0.5rem;
   position: relative;
   box-shadow: 0 5px 20px var(--grayish-blue);
+}
+
+@media (min-width: 768) {
+  .card {
+    height: 250px;
+  }
 }
 
 .card__title {
@@ -100,12 +132,27 @@ body {
   border-top: 3px solid var(--cyan);
 }
 
+@media (min-width: 1200px) {
+  .card:nth-child(1) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    transform: translateY(calc(-50% - (var(--gap) / 2)));
+  }
+}
+
 .card:nth-child(1)::after {
   content: url("../images/icon-supervisor.svg");
 }
 
 .card:nth-child(2) {
   border-top: 3px solid var(--red);
+}
+
+@media (min-width: 1200px) {
+  .card:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
 }
 
 .card:nth-child(2)::after {
@@ -116,12 +163,27 @@ body {
   border-top: 3px solid var(--orange);
 }
 
+@media (min-width: 1200px) {
+  .card:nth-child(3) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+}
+
 .card:nth-child(3)::after {
   content: url("../images/icon-karma.svg");
 }
 
 .card:nth-child(4) {
   border-top: 3px solid var(--blue);
+}
+
+@media (min-width: 1200px) {
+  .card:nth-child(4) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    transform: translateY(calc(-50% - (var(--gap) / 2)));
+  }
 }
 
 .card:nth-child(4)::after {
