@@ -1,0 +1,135 @@
+:root {
+  /* TYPOGRAPHY */
+  --font-size: 15px;
+  --font-family: "Poppins", sans-serif;
+  --font-weight-extra-light: 200;
+  --font-weight-light: 400;
+  --font-weight-bold: 600;
+
+  /* COLORS */
+
+  /* PRIMARY */
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+
+  /* NEUTRAL */
+  --very-dark-blue: hsl(234, 12%, 34%);
+  --grayish-blue: hsl(229, 6%, 66%);
+  --very-light-gray: hsl(0, 0%, 98%);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 5rem 2rem 4rem;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  background-color: var(--very-light-gray);
+}
+
+.header {
+  text-align: center;
+  color: var(--grayish-blue);
+}
+
+.header__title {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-extra-light);
+  margin-top: 0;
+}
+
+.header__title--bold {
+  font-weight: var(--font-weight-bold);
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--very-dark-blue);
+}
+
+.header__text {
+  line-height: 1.5rem;
+}
+
+.cards {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: minmax(310px, 1fr);
+  row-gap: 1.5rem;
+}
+
+.card {
+  padding: 2rem;
+  height: 222px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 0 5px 20px var(--grayish-blue);
+}
+
+.card__title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--very-dark-blue);
+}
+
+.card__text {
+  margin-top: 0.5rem;
+  color: var(--grayish-blue);
+}
+
+.card:nth-child(1) {
+  border-top: 3px solid var(--cyan);
+}
+
+.card:nth-child(1)::after {
+  content: url("../images/icon-supervisor.svg");
+}
+
+.card:nth-child(2) {
+  border-top: 3px solid var(--red);
+}
+
+.card:nth-child(2)::after {
+  content: url("../images/icon-team-builder.svg");
+}
+
+.card:nth-child(3) {
+  border-top: 3px solid var(--orange);
+}
+
+.card:nth-child(3)::after {
+  content: url("../images/icon-karma.svg");
+}
+
+.card:nth-child(4) {
+  border-top: 3px solid var(--blue);
+}
+
+.card:nth-child(4)::after {
+  content: url("../images/icon-calculator.svg");
+}
+
+.card:nth-child(n)::after {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+}
